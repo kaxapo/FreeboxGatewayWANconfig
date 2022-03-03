@@ -1,0 +1,28 @@
+menuconfig FBXATM
+	tristate "Freebox Asynchronous Transfer Mode (ATM)"
+
+if FBXATM
+
+config FBXATM_REMOTE
+	bool
+
+choice
+	prompt "mode"
+	default FBXATM_STACK
+
+config FBXATM_STACK
+	bool "standard"
+
+config FBXATM_REMOTE_STUB
+	bool "remote stub"
+	select FBXATM_REMOTE
+
+endchoice
+
+config FBXATM_REMOTE_DRIVER
+	tristate "remote fbxatm driver"
+	depends on FBXATM_STACK
+	select FBXATM_REMOTE
+	default n
+
+endif

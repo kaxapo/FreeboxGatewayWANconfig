@@ -1,0 +1,20 @@
+menuconfig FREEBOX_WATCHDOG
+	tristate "Freebox Watchdog"
+	default n
+
+if FREEBOX_WATCHDOG
+
+config FREEBOX_WATCHDOG_CHAR
+	bool "Freebox Watchdog char device interface."
+	default n
+
+config FREEBOX_WATCHDOG_ORION
+	tristate "Marvell Orion support"
+	depends on PLAT_ORION
+
+config FREEBOX_WATCHDOG_BCM63XX
+	tristate "Broadcom 63xx Freebox Watchdog support"
+	depends on BCM63XX
+	default n
+
+endif

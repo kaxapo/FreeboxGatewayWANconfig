@@ -1,0 +1,2 @@
+config FREEBOX_PROCFS
+	tristate "Freebox procfs interface"

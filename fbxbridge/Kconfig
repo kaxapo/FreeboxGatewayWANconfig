@@ -1,0 +1,6 @@
+
+#
+# Freebox bridge
+#
+config FBXBRIDGE
+	bool "Freebox Bridge"

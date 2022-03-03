@@ -1,0 +1,3 @@
+config FREEBOX_JTAG
+	tristate "Freebox JTAG control interface"
+	default n

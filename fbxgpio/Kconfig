@@ -1,0 +1,3 @@
+config FREEBOX_GPIO
+	tristate "Freebox GPIO control interface"
+	default n

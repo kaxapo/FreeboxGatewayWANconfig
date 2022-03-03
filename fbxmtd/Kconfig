@@ -1,0 +1,41 @@
+menuconfig FREEBOX_MTD
+	tristate "Freebox Memory Technology Devices (FBXMTD) support"
+
+if FREEBOX_MTD
+
+config FREEBOX_MTD_BACKEND_AMD
+	bool "Support for AMD compatible flash"
+
+config FREEBOX_MTD_BACKEND_INTEL
+	bool "Support for Intel Strataflash"
+
+config FREEBOX_MTD_BLK
+	tristate "Block device access to fbxmtd"
+	depends on BLOCK
+
+config FREEBOX_MTD_CHAR
+	tristate "Character device access to fbxmtd"
+
+
+comment "Mapping drivers"
+
+#
+# Generic mapping driver.
+#
+config FREEBOX_MTD_MAP_DRV_FBX
+	tristate "Freebox mapping Driver."
+	select CRC32
+
+config FREEBOX_MTD_MAP_DRV_BCM963XX
+	tristate "Broadcom 963xx flash format"
+	select CRC32
+
+#
+# Freebox MTD Map Control interface
+#
+config FREEBOX_MTD_MAP_IOCTL
+	tristate "IOCTL control interface"
+	depends on FREEBOX_MTD_MAP_DRV_FBX
+
+endif
+
